@@ -86,8 +86,8 @@ pipeline {
             steps {
                 script {
                     def services = [
-                        'connectionservice',
-                        'apigateway'
+                        'apigateway',
+                        'connectionservice'
                     ]
 
                     for (service in services) {
