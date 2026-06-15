@@ -19,7 +19,7 @@ pipeline {
                 script {
                     def services = [
                         'apigateway',
-                        'connectionservice'
+                        'connectionsservice'
                     ]
 
                     for (service in services) {
@@ -50,7 +50,7 @@ pipeline {
                 script {
                     def services = [
                        'apigateway',
-                        'connectionservice'
+                        'connectionsservice'
                     ]
 
                     for (service in services) {
@@ -87,7 +87,7 @@ pipeline {
                 script {
                     def services = [
                         'apigateway',
-                        'connectionservice'
+                        'connectionsservice'
                     ]
 
                     for (service in services) {
