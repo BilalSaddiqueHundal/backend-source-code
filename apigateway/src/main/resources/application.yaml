@@ -1,0 +1,20 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: apigateway
+
+  cloud:
+    gateway:
+      routes:
+        - id: connectionservice
+          uri: http://connectionservice:8080
+          predicates:
+            - Path=/api/connections/**
+
+        - id: messageservice
+          uri: http://messageservice:8080
+          predicates:
+            - Path=/api/messages/**
+

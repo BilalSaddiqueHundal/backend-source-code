@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apigateway
+  namespace: microservices
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apigateway
+  template:
+    metadata:
+      labels:
+        app: apigateway
+    spec:
+      containers:
+        - name: apigateway
+          image: apigateway:1.0
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8989
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8989
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8989
+            initialDelaySeconds: 40
+            periodSeconds: 20
